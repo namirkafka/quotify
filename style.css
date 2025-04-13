@@ -88,6 +88,7 @@ html, body {
 .card-slider {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     gap: 1rem;
     padding: 0;
     scroll-behavior: smooth;

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotify - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-bar">
+        <p class="logo">Quotify</p>
+        <p class="tagline">Your daily dose of wisdom</p>
+    </div>
+    <nav class="navbar">
+        <a class="home-button active" href="index.html">Home</a>
+        <a href="quotes.html">Quotes</a>
+        <a href="authors.html">Authors</a>
+        <a href="favourites.html">Favourites</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <main class="content">
+        <!-- Section 1: Best Books -->
+        <section id="best-books">
+            <h2>Best Books</h2>
+            <div class="card-slider">
+                <div class="card">
+                    <img src="images/images.jpg" alt="Book 1 Cover">
+                    <p>To Kill a Mockingbird</p>
+                </div>
+                <div class="card">
+                    <img src="images/2.jpg" alt="Book 2 Cover">
+                    <p>The Great Gatsby</p>
+                </div>
+                <div class="card">
+                    <img src="images/3.jpg" alt="Book 3 Cover">
+                    <p>Pride and Prejudice</p>
+                </div>
+                <div class="card">
+                    <img src="images/4.jpg" alt="Book 4 Cover">
+                    <p>Harry Potter</p>
+                </div>
+                <div class="card">
+                    <img src="images/5.jpg" alt="Book 5 Cover">
+                    <p>One Hundred Years of Solitude</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Great Books for Commute -->
+        <section id="great-books-commute">
+            <h2>Great Books for Commute</h2>
+            <div class="card-slider">
+                <div class="card">
+                    <img src="images/11.jpg" alt="Book A Cover">
+                    <p>The Girl on the Train</p>
+                </div>
+                <div class="card">
+                    <img src="images/22.jpg" alt="Book B Cover">
+                    <p>Iona Iverson's Rules for Commuting</p>
+                </div>
+                <div class="card">
+                    <img src="images/33.png" alt="Book C Cover">
+                    <p>Traffic: Why We Drive the Way We Do</p>
+                </div>
+                <div class="card">
+                    <img src="images/44.jpg" alt="Book D Cover">
+                    <p>Educated</p>
+                </div>
+                <div class="card">
+                    <img src="images/55.jpg" alt="Book E Cover">
+                    <p>Ready Player One</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Best Choices -->
+        <section id="best-choices">
+            <h2>Best Choices</h2>
+            <div class="card-slider">
+                <div class="card">
+                    <img src="images/111.jpg" alt="Choice 1 Cover">
+                    <p>Beloved</p>
+                </div>
+                <div class="card">
+                    <img src="images/222.jpg" alt="Choice 2 Cover">
+                    <p>A Little Life</p>
+                </div>
+                <div class="card">
+                    <img src="images/333.jpg" alt="Choice 3 Cover">
+                    <p>The Book Thief</p>
+                </div>
+                <div class="card">
+                    <img src="images/444.jpg" alt="Choice 4 Cover">
+                    <p>The Whale</p>
+                </div>
+                <div class="card">
+                    <img src="images/555.png" alt="Choice 5 Cover">
+                    <p>The Call of the Wild</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.querySelectorAll('.card-slider').forEach(slider => {
+            slider.addEventListener('wheel', (event) => {
+                event.preventDefault();
+                slider.scrollLeft += event.deltaY;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -112,6 +112,7 @@ html, body {
     font-weight: bold;
     color: #333;
     padding: 5px;
+    padding-bottom: 20px;
 }
 
 .card img {

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotify - Favourites</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/xx.jpg">
+</head>
+<body>
+    <div class="top-bar">
+        <p class="logo">Quotify</p>
+        <p class="tagline">Your daily dose of wisdom</p>
+    </div>
+    <nav class="navbar">
+        <a class="home-button" href="index.html">Home</a>
+        <a href="quotes.html">Quotes</a>
+        <a href="authors.html">Authors</a>
+        <a class="active" href="favourites.html">Favourites</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <main class="content">
+        <h2>Your Favourite Quotes</h2>
+        <div id="favourites-container" class="quotes-container">
+            <!-- Favourites will be dynamically added here -->
+        </div>
+    </main>
+
+    <script>
+        function loadFavourites() {
+            const favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+            const container = document.getElementById('favourites-container');
+            container.innerHTML = '';
+
+            if (favourites.length === 0) {
+                container.innerHTML = '<p>No favourites yet. Go like some quotes!</p>';
+                return;
+            }
+
+            favourites.forEach((fav, index) => {
+                const card = document.createElement('div');
+                card.className = 'quote-card';
+
+                const text = document.createElement('p');
+                text.className = 'quote-text';
+                text.textContent = `"${fav.quote}"`;
+
+                const author = document.createElement('span');
+                author.className = 'quote-author';
+                author.textContent = fav.author;
+
+                const removeButton = document.createElement('button');
+                removeButton.className = 'remove-heart';
+                removeButton.innerHTML = '❤️';
+                removeButton.onclick = () => removeFromFavourites(index);
+
+                card.appendChild(text);
+                card.appendChild(author);
+                card.appendChild(removeButton);
+                container.appendChild(card);
+            });
+        }
+
+        function removeFromFavourites(index) {
+            let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+            favourites.splice(index, 1);
+            localStorage.setItem('favourites', JSON.stringify(favourites));
+            loadFavourites();
+        }
+
+        loadFavourites();
+    </script>
+</body>
+</html>

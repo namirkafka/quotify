@@ -23,7 +23,7 @@ html, body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px 0 10px;
+    padding: 10px 2px;
     font-weight: bold;
     font-size: 14px;
     z-index: 1000;
@@ -91,6 +91,7 @@ html, body {
     overflow-y: hidden;
     gap: 1rem;
     padding: 0;
+    padding-bottom: 1rem;
     scroll-behavior: smooth;
     margin-bottom: 2rem; /* Add space below the slider */
 }

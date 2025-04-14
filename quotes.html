@@ -78,23 +78,13 @@
 
     <script>
         function addToFavourites(quote, author) {
-            // Get existing favourites from localStorage
             let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
 
-            // Check if the quote is already in favourites
-            const isAlreadyFavourite = favourites.some(fav => fav.quote === quote && fav.author === author);
-            if (isAlreadyFavourite) {
-                alert("This quote is already in your favourites!");
-                return;
-            }
-
-            // Add the new quote to favourites
             favourites.push({ quote, author });
 
-            // Save back to localStorage
             localStorage.setItem('favourites', JSON.stringify(favourites));
 
-            alert("Quote added to favourites!");
+            
         }
     </script>
 </body>

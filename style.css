@@ -97,7 +97,7 @@ html, body {
 .card {
     flex: 0 0 auto;
     width: 150px;
-    height: 250px;
+    height: auto;
     background-color: #f4f4f4;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -110,6 +110,7 @@ html, body {
     font-weight: bold;
     color: #333;
     padding: 5px;
+    word-wrap: break-word;
 }
 
 .card img {
@@ -123,6 +124,7 @@ html, body {
     font-size: 14px;
     margin-top: 5px;
     color: #555;
+    text-align: center;
 }
 .card a {
     text-decoration: none;
@@ -162,14 +164,13 @@ section h2 {
     padding: 16px;
     gap: 10px;
     width: 300px;
-    height: auto;
+    height: 400px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    word-wrap: break-word
 }
 .quote-author {
     font-size: 14px;

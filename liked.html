@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotify - Liked</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/xx.jpg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="top-bar">
+        <p class="logo">Quotify</p>
+        <p class="tagline">Your daily dose of wisdom</p>
+    </div>
+    <nav class="navbar">
+        <a class="home-button" href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="quotes.html"><i class="fas fa-quote-left"></i><span>Quotes</span></a>
+        <a href="authors.html"><i class="fas fa-user"></i><span>Authors</span></a>
+        <a class="active" href="Liked.html"><i class="fas fa-heart"></i><span>Liked</span></a>
+        <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    </nav>
+
+    <main class="content">
+        <h2>Your Favourite Quotes</h2>
+        <div id="Liked-container" class="quotes-container">
+        </div>
+    </main>
+
+    <script>
+        function loadLiked() {
+            const Liked = JSON.parse(localStorage.getItem('Liked')) || [];
+            const container = document.getElementById('Liked-container');
+            container.innerHTML = '';
+
+            if (Liked.length === 0) {
+                container.innerHTML = '<p>No Liked yet. Go like some quotes!</p>';
+                return;
+            }
+
+            Liked.forEach((fav, index) => {
+                const card = document.createElement('div');
+                card.className = 'quote-card';
+
+                const text = document.createElement('p');
+                text.className = 'quote-text';
+                text.textContent = `"${fav.quote}"`;
+
+                const author = document.createElement('span');
+                author.className = 'quote-author';
+                author.textContent = fav.author;
+
+                const removeButton = document.createElement('button');
+                removeButton.className = 'remove-heart';
+                removeButton.innerHTML = '❤️';
+                removeButton.onclick = () => removeFromLiked(index);
+
+                card.appendChild(text);
+                card.appendChild(author);
+                card.appendChild(removeButton);
+                container.appendChild(card);
+            });
+        }
+
+        function removeFromLiked(index) {
+            let Liked = JSON.parse(localStorage.getItem('Liked')) || [];
+            Liked.splice(index, 1);
+            localStorage.setItem('Liked', JSON.stringify(Liked));
+            loadLiked();
+        }
+
+        loadLiked();
+    </script>
+</body>
+</html>
